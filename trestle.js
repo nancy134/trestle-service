@@ -71,3 +71,75 @@ exports.getOpenHouses = function(body){
         });
     });
 }
+
+
+exports.getProperty = function(id, body){
+    return new Promise(function(resolve, reject){
+        var url = "https://api-prod.corelogic.com/trestle/odata" + "/Property" + "('" + id + "')";
+        var headers = utilities.createHeaders(body.access_token);
+        var options = {
+            url: url,
+            method: 'GET',
+            headers: headers
+        };
+        axios(options).then(function(result){
+            resolve(result.data);
+        }).catch(function(err){
+            reject(utilities.processAxiosError(err));
+        });
+    });
+}
+
+
+exports.getMember = function(id, body){
+    return new Promise(function(resolve, reject){
+        var url = "https://api-prod.corelogic.com/trestle/odata" + "/Member" + "('" + id + "')";
+        var headers = utilities.createHeaders(body.access_token);
+        var options = {
+            url: url,
+            method: 'GET',
+            headers: headers
+        };
+        axios(options).then(function(result){
+            resolve(result.data);
+        }).catch(function(err){
+            reject(utilities.processAxiosError(err));
+        });
+    });
+}
+
+
+exports.getOffice = function(id, body){
+    return new Promise(function(resolve, reject){
+        var url = "https://api-prod.corelogic.com/trestle/odata" + "/Office" + "('" + id + "')";
+        var headers = utilities.createHeaders(body.access_token);
+        var options = {
+            url: url,
+            method: 'GET',
+            headers: headers
+        };
+        axios(options).then(function(result){
+            resolve(result.data);
+        }).catch(function(err){
+            reject(utilities.processAxiosError(err));
+        });
+    });
+}
+
+
+exports.getOpenHouse = function(id, body){
+    return new Promise(function(resolve, reject){
+        var url = "https://api-prod.corelogic.com/trestle/odata" + "/OpenHouse" + "('" + id + "')";
+        var headers = utilities.createHeaders(body.access_token);
+        var options = {
+            url: url,
+            method: 'GET',
+            headers: headers
+        };
+        axios(options).then(function(result){
+            resolve(result.data);
+        }).catch(function(err){
+            reject(utilities.processAxiosError(err));
+        });
+    });
+}
